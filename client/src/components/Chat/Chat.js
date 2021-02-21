@@ -11,6 +11,8 @@ import './Chat.css';
 
 const ENDPOINT = 'https://chat-applicatioreact.herokuapp.com/';
 
+// const ENDPOINT = 'http://localhost:5000';
+
 let socket;
 
 const Chat = ({ location }) => {

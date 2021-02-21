@@ -58,10 +58,10 @@
     color: #353535;
   }
   
-  .backgroundBlue {
-    background: #2979FF;
+  .backgroundPurple {
+    background: rebeccapurple;
   }
   
   .backgroundLight {
-    background: #F3F3F3;
+    background: lightgray;
   }

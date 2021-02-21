@@ -7,12 +7,8 @@
     justify-content: space-between;
   }
 
-  .textCenter {
-    text-align: center;
-  }
-
   h1 {
-    color: #2979FF;
+    color: rebeccapurple;
   }
   
   .activeContainer {

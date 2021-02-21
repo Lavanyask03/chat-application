@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #2979FF;
+    background-color: rebeccapurple;
     border-radius: 4px 4px 0 0;
     height: 60px;
     width: 100%;
@@ -25,4 +25,18 @@
   
   .onlineIcon {
     margin-right: 5%;
+  }
+
+  .leave-btn {
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    color: rebeccapurple;
+    background-color: white;
+    cursor: pointer;
+    border: none;
+  }
+
+  .leave-btn:hover {
+    background-color: rgb(233, 233, 233);
   }

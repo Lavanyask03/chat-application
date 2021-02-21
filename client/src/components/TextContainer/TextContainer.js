@@ -6,15 +6,11 @@ import './TextContainer.css';
 
 const TextContainer = ({ users }) => (
   <div className="textContainer">
-    <div className="textCenter">
-      <h1>Realtime Chat Application <span role="img" aria-label="emoji">💬</span></h1>
-      <h2>Built with React, Express, Node and Socket.IO</h2>
-    </div>
     {
       users
         ? (
           <div>
-            <h1>People currently chatting:</h1>
+            <h1>Users Online</h1>
             <div className="activeContainer">
               <h2>
                 {users.map(({name}) => (

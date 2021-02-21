@@ -46,13 +46,17 @@ html, body {
       color: #fff !important;
       text-transform: uppercase;
       text-decoration: none;
-      background: #2979FF;
+      background-color: rebeccapurple;
       padding: 20px;
       border-radius: 10px;
       display: inline-block;
       border: none;
       width: 100%;
       cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: rgb(81, 0, 161);
   }
   
   .mt-20 {
