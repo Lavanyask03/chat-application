@@ -3,6 +3,12 @@ const express = require('express');
 const socketio = require('socket.io');
 const cors = require('cors');
 
+// adding moment for timestamp
+const moment = require('moment');
+function getTime() {
+  return moment().format('h:mm a');
+}
+
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
 
 const router = require('./router');
@@ -28,8 +34,8 @@ io.on('connect', (socket) => {
 
     socket.join(user.room);
 
-    socket.emit('message', { user: 'admin', text: `${user.name}, welcome to room ${user.room}.`});
-    socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!` });
+    socket.emit('message', { user: 'admin', text: `${user.name}, welcome to room ${user.room}.`, time: getTime()});
+    socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!`, time: getTime() });
 
     io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
 
@@ -39,7 +45,7 @@ io.on('connect', (socket) => {
   socket.on('sendMessage', (message, callback) => {
     const user = getUser(socket.id);
 
-    io.to(user.room).emit('message', { user: user.name, text: message });
+    io.to(user.room).emit('message', { user: user.name, text: message , time: getTime()});
 
     callback();
   });
@@ -48,7 +54,7 @@ io.on('connect', (socket) => {
     const user = removeUser(socket.id);
 
     if(user) {
-      io.to(user.room).emit('message', { user: 'Admin', text: `${user.name} has left.` });
+      io.to(user.room).emit('message', { user: 'Admin', text: `${user.name} has left.`, time: getTime() });
       io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room)});
     }
   })
